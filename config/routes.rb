@@ -1,4 +1,19 @@
 ActionController::Routing::Routes.draw do |map|
+  
+  map.admin_login 'admin', :controller => 'admin', :action => 'index'
+  map.admin_login 'admin/login', :controller => 'admin', :action => 'login'
+  map.admin_logout 'admin/logout', :controller => 'admin', :action => 'logout'
+  
+  map.resources :pages
+  map.resources :sections, :has_many => :albums
+  map.resources :albums, :has_many => :photos
+  map.resources :photos
+  
+  
+  map.with_options :controller => "pages" do |page|
+    page.home "/", :action =>  "home"
+    page.home "/:id", :action => "show"
+  end
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
