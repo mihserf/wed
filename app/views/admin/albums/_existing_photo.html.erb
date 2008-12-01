@@ -1,0 +1,16 @@
+<div class="photo">
+  
+    <p><%= image_tag existing_photo.photo.url(:thumb) unless existing_photo.new_record?%></p>
+    
+    <%= file_field_tag 'existing_photos['+existing_photo.id.to_s+'][photo]' %>
+    <%= hidden_field_tag 'existing_photos['+existing_photo.id.to_s+'][id]', existing_photo.id %>
+
+    <%= link_to_function  image_tag("/images/delete_ico.gif",:alt=>"Удалить"), "destroy('album_photos',"+existing_photo.id.to_s+"); $(this).parent().fadeOut('slow', function(){$(this).remove()});" %>
+
+    хорошая? <%= check_box_tag 'existing_photos['+existing_photo.id.to_s+'][best]', 1, existing_photo.best? %>
+                       <%= hidden_field_tag 'existing_photos['+existing_photo.id.to_s+'][best]', 0 %>
+    <p>
+        Название<br>
+        <%=  text_field_tag  'existing_photos['+existing_photo.id.to_s+'][name]', existing_photo.name%>
+    </p>
+</div>

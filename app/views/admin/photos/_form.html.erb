@@ -1,0 +1,21 @@
+
+
+<% form_for [:admin,@photo], :html => { :multipart => true} do |f| %>
+  <%= f.error_messages %>
+  
+  <p>
+    <%= f.label 'Название' %><br />
+    <%= f.text_field :name, :class => "required" %>
+  </p>
+  
+   <p><%= image_tag @photo.public_filename(:view) unless @photo.new_record?%></p>
+    
+    <%= f.file_field :photo %>
+ <p> 
+хорошая? <%= f.check_box :best %>
+</p>
+  <p>
+    <%= f.submit "Сохранить" %>
+  </p>
+<% end %>
+

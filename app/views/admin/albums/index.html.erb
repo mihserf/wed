@@ -1,2 +1,20 @@
-<h1>Admin::Albums#index</h1>
-<p>Find me in app/views/admin/albums/index.html.erb</p>
+
+<table class="admin_table">
+
+<% for album in @albums %>
+    <tr>
+        <td><%= link_to(album.title, album_path(album))%></td>
+        <td>
+            
+         <%=loc.short%><%= link_to image_tag("/images/edit_ico.gif",:alt=>"Редактировать"), edit_album_path(album) %>
+            
+        </td>
+        <td><%= link_to image_tag("/images/delete_ico.gif",:alt=>"Удалить"), album, :confirm => 'Подтвердите удаление', :method => :delete %></td>
+    </tr>
+  <tr></tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Добавить альбом', new_admin_album_path %>

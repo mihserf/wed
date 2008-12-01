@@ -9,6 +9,13 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :albums, :has_many => :photos
   map.resources :photos
   
+  map.namespace :admin do |admin|
+    admin.resources :pages
+    admin.resources :sections, :has_many => :albums
+    admin.resources :albums, :has_many => :photos
+    admin.resources :photos
+  
+  end
   
   map.with_options :controller => "pages" do |page|
     page.home "/", :action =>  "home"

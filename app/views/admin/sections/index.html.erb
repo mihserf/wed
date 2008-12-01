@@ -1,2 +1,21 @@
-<h1>Admin::Sections#index</h1>
-<p>Find me in app/views/admin/sections/index.html.erb</p>
+
+<% for section in @sections %>
+  <div class="admin_section">
+  <%= link_to section.name, section%>
+    <%= link_to image_tag("/images/edit_ico.gif",:alt=>"Редактировать"), edit_admin_section_path(section) %>
+    <%= link_to image_tag("/images/delete_ico.gif",:alt=>"Удалить"), section, :confirm => 'Подтвердите удаление', :method => :delete %>
+    <h4>альбомы</h4>
+    <% for album in section.albums.find(:all, :order => "created_at DESC")%>
+    <div class="admin_album">
+        <%= link_to album.name, [section,album]%>
+    <%= link_to image_tag("/images/edit_ico.gif",:alt=>"Редактировать"), edit_admin_album_path(album) %>
+    <%= link_to image_tag("/images/delete_ico.gif",:alt=>"Удалить"), album, :confirm => 'Подтвердите удаление', :method => :delete %>
+    </div>
+    <% end %>
+    <%= link_to image_tag("/images/add_ico.gif",:alt=>"Добавить"), new_admin_section_album_path(section), :class => 'admin_album_add' %>
+  </div>
+
+<% end %>  
+
+
+<%= link_to 'Добавить раздел', new_admin_section_path %>

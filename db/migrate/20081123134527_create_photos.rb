@@ -5,11 +5,11 @@ class CreatePhotos < ActiveRecord::Migration
       t.boolean :best
       t.boolean :main
       t.string :name
-      t.string :filename
-      t.string :content_type
-      t.integer :width
-      t.integer :height
-      t.string :type
+      
+      t.string :photo_file_name
+      t.string :photo_content_type
+      t.integer :photo_file_size
+      t.datetime :photo_updated_at
 
       t.timestamps
     end

@@ -1,0 +1,30 @@
+/* DEFAULT */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+border:0pt none;
+font-family:inherit;
+font-size:100%;
+font-style:inherit;
+font-weight:inherit;
+margin:0pt;
+padding:0pt;
+vertical-align:baseline;}
+
+html {height:100%; width:100%;}
+body {height:100%; width:100%;}
+
+body {min-width:900px;}
+
+
+
+/* ADMIN section */
+
+.admin_section{padding-bottom:20px; padding-left:30px;}
+    .admin_section h4{ padding-left:40px}
+    .admin_album{ padding-left:40px}
+    .admin_album_add{ padding-left:40px}
+    
+    
+    
+    
+
+    

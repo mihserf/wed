@@ -1,0 +1,20 @@
+
+<table class="admin_table">
+
+<% for photo in @photos %>
+    <tr>
+        <td><%= image_tag photo.public_filename(:view)%></td>
+        <td>
+            
+         <%= link_to image_tag("/images/edit_ico.gif",:alt=>"Редактировать"), edit_admin_photo_path(photo) %>
+            
+        </td>
+        <td><%= link_to image_tag("/images/delete_ico.gif",:alt=>"Удалить"), photo, :confirm => 'Подтвердите удаление', :method => :delete %></td>
+    </tr>
+  <tr></tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Добавить фото', new_admin_photo_path %>

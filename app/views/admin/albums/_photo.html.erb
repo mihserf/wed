@@ -1,0 +1,16 @@
+<div class="photo">
+    
+    <p><%= image_tag photo.url(:thumb) unless photo.new_record?%></p>
+    
+    <%= file_field_tag 'photos[][photo]' %>
+
+    <%= link_to_function  image_tag("/images/delete_ico.gif",:alt=>"Удалить"), "$(this).parent().fadeOut('slow', function(){$(this).remove()});" %>
+
+    хорошая? <%= check_box_tag 'photos[][best]', 1, false %>
+
+    <p>
+        Название<br>
+        <%=  text_field_tag  'photos[][name]'%>
+    </p>
+
+</div>

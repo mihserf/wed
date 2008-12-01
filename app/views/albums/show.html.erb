@@ -1,2 +1,11 @@
-<h1>Albums#show</h1>
-<p>Find me in app/views/albums/show.html.erb</p>
+
+  <h3><%= @album.title %></h3>
+  <% for item in @album.album_photos %>
+    <div class="photo" style="float:left; width:90px; height:80px; background:#ebebeb; padding: 20px 15px; margin:5px 1px;">
+      <%= link_to  (image_tag item.public_filename(:thumb)),  (item.public_filename()), :style=>"display:block;width:80px; height:80px; overflow:hidden", :title => item.description%>
+    </div>
+  <% end %>
+
+
+<%= link_to 'Редактировать', edit_lang_album_path(lang_id(@lang),@album) if admin? %>
+  
